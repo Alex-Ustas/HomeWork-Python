@@ -94,13 +94,14 @@ def task5():
 
     # Алгоритм Лемера от текущего времени
     # x(i) = a * x(i-1) mod m
-    a = int(float(time.time()) * 100 % 100)
+    cur_time = time.time()
+    a = int(float(cur_time) * 100 % 100)
     a = 2 if a < 2 else a
-    m = int(float(time.time()) * 10000 % 100)
+    m = int(float(cur_time) * 10000 % 100)
     m = 11 if m < 2 else m
-    xi = int(float(time.time()) * 1000000 % 100)
+    xi = int(float(cur_time) * 1000000 % 100)
     xi = 11 if xi == 0 else xi
-    print(f'Time = {time.time()}, a = {a}, m = {m}, xi = {xi}')
+    print(f'Time = {cur_time}, a = {a}, m = {m}, xi = {xi}')
     lehmer = list()
     check = [0 for i in range(len(in_lst))]  # 0 - элемент еще не вставляли, 1 - уже использовали
     for i in range(len(in_lst)):
@@ -110,7 +111,7 @@ def task5():
             position = position if position < len(in_lst) else 0
         lehmer.append(in_lst[position])
         check[position] = 1
-        xi = a * xi % m
+        xi = (a * xi) % m
     print('Перемешанный список по алгоритму Лемера:\t', lehmer)
 
 

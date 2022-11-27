@@ -75,8 +75,8 @@ def task4():
 # 5. Реализуйте алгоритм перемешивания списка.
 def task5():
     print('Задание 5')
-    in_lst = [random.randint(10, 99) for i in range(random.randint(5, 10))]
-    print(f'Исходный случайный список из {len(in_lst)} элементов:\t', in_lst)
+    in_lst = [i for i in range(10)]
+    print('Исходный список из 10 элементов:\t\t\t', in_lst)
 
     shuffle = in_lst.copy()
     random.shuffle(shuffle)

@@ -74,13 +74,21 @@ def fib(num):
         return fib(num - 1) + fib(num - 2)
 
 
+def negafib(num):
+    if num == 1:
+        return 1
+    elif num == 2:
+        return -1
+    else:
+        return negafib(num - 2) - negafib(num - 1)
+
+
 def task5():
     num = int(input('Введите число: '))
     lst = [0]
-    for e in range(1, num + 1):
-        lst.append(fib(e))
-        lst.append(-fib(e))
-    lst.sort()
+    for i in range(1, num + 1):
+        lst.append(fib(i))
+        lst.insert(0, negafib(i))
     print(lst)
 
 

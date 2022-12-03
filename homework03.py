@@ -1,4 +1,4 @@
-# Homework 02
+# Homework 03
 from random import randint
 from random import random
 

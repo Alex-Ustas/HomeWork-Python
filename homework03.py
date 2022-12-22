@@ -27,11 +27,16 @@ def task2():
     """Список произведения пар"""
     rnd_lst = [randint(1, 5) for i in range(randint(4, 7))]
     print('Список случайных чисел:', rnd_lst)
-    len_lst = len(rnd_lst)
-    mult_lst = [rnd_lst[i] * rnd_lst[-i - 1] for i in range(len_lst // 2)]
-    if len_lst % 2 == 1:
-        mult_lst.append(rnd_lst[len_lst // 2] ** 2)
-    print('Список произведения пар чисел:', mult_lst)
+    # len_lst = len(rnd_lst)
+    # mult_lst = [rnd_lst[i] * rnd_lst[-i - 1] for i in range(len_lst // 2)]
+    # if len_lst % 2 == 1:
+    #     mult_lst.append(rnd_lst[len_lst // 2] ** 2)
+    # print('Список произведения пар чисел:', mult_lst)
+
+    # Заменил свой код на Ваш, сократив его с применением list comprehension
+    count = int(round(len(rnd_lst) + 1) / 2)
+    pairs = [rnd_lst[i] * rnd_lst[len(rnd_lst) - i - 1] for i in range(count)]
+    print('Список произведения пар чисел:', pairs)
 
 
 # 3. Задайте список из вещественных чисел. Напишите программу, которая найдёт разницу между
@@ -64,9 +69,11 @@ def binary(num, bin_list):
 
 
 def task4():
-    for i in range(5):
-        num = randint(1, 100)
-        print(f'{num} -> {binary(num, "")}')
+    # for i in range(5):
+    #     num = randint(1, 100)
+    #     print(f'{num} -> {binary(num, "")}')
+    lst = '\n'.join([f'{num} -> {binary(num, "")}' for num in range(10, 20)])
+    print(lst)
 
 
 # 5. Задайте число. Составьте список чисел Фибоначчи, в том числе для отрицательных индексов. (Дополнительное)
@@ -94,8 +101,9 @@ def negafib(num):
 def task5():
     num = int(input('Введите число: '))
     lst = [0]
+    lst += [fib(i) for i in range(1, num + 1)]
     for i in range(1, num + 1):
-        lst.append(fib(i))
+        # lst.append(fib(i))
         lst.insert(0, negafib(i))
     print(lst)
 
